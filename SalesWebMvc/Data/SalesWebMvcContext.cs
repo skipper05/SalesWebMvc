@@ -13,6 +13,11 @@ namespace SalesWebMvc.Models
         {
         }
 
-        public DbSet<SalesWebMvc.Models.Department> Department { get; set; }
+        public DbSet<Department> Department { get; set; }
+        public DbSet <Seller> Seller { get; set; } //Adicionar aqui os DBSets Seller
+        public DbSet<SalesRecord> SalesRecord { get; set; } //Adicionar aqui os DBSets SalesRecord
+
+
+
     }
 }
