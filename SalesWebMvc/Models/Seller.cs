@@ -14,6 +14,8 @@ namespace SalesWebMvc.Models
         public double BaseSalary { get; set; }
         public Department Department { get; set; }
 
+        public int DepartmentId { get; set; } //Avisa para o Entity framework que esse ID deve exist
+
         public ICollection<SalesRecord> Sales { get; set; } = new List<SalesRecord>();
 
         public Seller() 
