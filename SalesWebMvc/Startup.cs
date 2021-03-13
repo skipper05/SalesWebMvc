@@ -44,6 +44,7 @@ builder.MigrationsAssembly("SalesWebMvc")));
 
             services.AddScoped<SeedingService>(); //Inclusao no sistema de injeção de dependencias
             services.AddScoped<SellerService>(); //Inclusao no sistema de injeção de dependencias
+            services.AddScoped<DepartmentService>(); //Inclusao no sistema de injeção de dependencias
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
