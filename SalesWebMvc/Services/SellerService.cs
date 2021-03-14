@@ -26,6 +26,20 @@ namespace SalesWebMvc.Services // Essa Classe cria serviços para a classe Selle
             _context.SaveChanges();
 
         }
+        public Seller FindById(int id)
+        {
+            return _context.Seller.FirstOrDefault(obj => obj.id == id);
+
+        }
+
+        public void Remove(int id)
+        {
+
+            var obj = _context.Seller.Find(id);
+            _context.Seller.Remove(obj);
+            _context.SaveChanges();
+        }
+
 
 
     }
