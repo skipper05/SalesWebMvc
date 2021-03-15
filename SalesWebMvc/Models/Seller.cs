@@ -9,11 +9,17 @@ namespace SalesWebMvc.Models
     public class Seller
     {
         public int Id { get; set; }
-        public string Name { get; set; }
         
+        [Required(ErrorMessage = "{0} required")]
+        [StringLength(60, MinimumLength = 3, ErrorMessage = "{0} size should between {2} and {1}")] //Vlr maximo entre 3 e 60
+        public string Name { get; set; }
+
+        [Required(ErrorMessage = "{0} required")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         
+       
+       
         [Display (Name = "Birth Date")] //PAra colocar os titulos no formato desejado. Ex: Birth Date Separado 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")] //Para colocar Data padrao brasileiro
