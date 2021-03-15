@@ -114,7 +114,7 @@ namespace SalesWebMvc.Controllers
 
         {
 
-            if (id != seller.id)
+            if (id != seller.Id)
             {
                 return RedirectToAction(nameof(Error), new { message = "Ids mysmatch" });
             }

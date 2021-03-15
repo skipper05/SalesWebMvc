@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic; //Permite a utilização de IColections (um vendedor (seler) tem uma ou mais vendas (SalesRecord)  
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
 
@@ -7,10 +8,19 @@ namespace SalesWebMvc.Models
 {
     public class Seller
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
+        
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
+        
+        [Display (Name = "Birth Date")] //PAra colocar os titulos no formato desejado. Ex: Birth Date Separado 
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")] //Para colocar Data padrao brasileiro
         public DateTime BirthDate { get; set; }
+
+        [Display(Name = "Base Salary")] //PAra colocar os titulos no formato desejado. Ex: Birth Date Separado 
+        [DisplayFormat(DataFormatString = "{0:F2}")] //Para colocar dinheiro na forma .00
         public double BaseSalary { get; set; }
         public Department Department { get; set; }
 
@@ -22,9 +32,9 @@ namespace SalesWebMvc.Models
         {
         }
 
-        public Seller(int id, string name, string email, DateTime birthDate, double baseSalary, Department department)
+        public Seller(int Id, string name, string email, DateTime birthDate, double baseSalary, Department department)
         {
-            this.id = id;
+            this.Id = Id;
             Name = name;
             Email = email;
             BirthDate = birthDate;
