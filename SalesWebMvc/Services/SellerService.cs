@@ -34,12 +34,16 @@ namespace SalesWebMvc.Services // Essa Classe cria serviços para a classe Selle
 
         }
 
-        public async Task RemoveAsync(int id)
+        public async Task RemoveAsync(int id) //Aqui 
         {
-
+            try { 
             var obj = await _context.Seller.FindAsync(id);
             _context.Seller.Remove(obj);
             await _context.SaveChangesAsync();
+            }catch(DbUpdateException e)
+            {
+                throw new IntegrityException(e.Message);
+            }
         }
 
         public async Task UpdateAsync(Seller obj)
